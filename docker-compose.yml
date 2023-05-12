@@ -1,0 +1,6 @@
+---
+version: "3"
+services:
+  molecule:
+    image: ghcr.io/eclipse-slm/molecule:4.0.4
+    build: .

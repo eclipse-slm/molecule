@@ -1,0 +1,27 @@
+name: Build Molecule Image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-push-molecule:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Molecule Image
+        working-directory: .
+        run: docker-compose build molecule
+      - name: Login to Docker Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: Push docker image
+        working-directory: .
+        run: docker-compose push
