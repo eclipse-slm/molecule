@@ -3,6 +3,12 @@ FROM python:3.9
 
 ARG MOLECULE_VERSION
 
+RUN echo "alias mcrs='molecule create -s'" >> ~/.bashrc && \
+    echo "alias mrs='molecule reset -s'" >> ~/.bashrc && \
+    echo "alias mps='molecule prepare -f -s'" >> ~/.bashrc && \
+    echo "alias mcs='molecule converge -s'" >> ~/.bashrc && \
+    echo "alias mds='molecule destroy -s'" >> ~/.bashrc
+
 RUN git config --global credential.helper store
 RUN apt update && apt install -y docker.io sshpass libguestfs-tools libvirt-dev virtinst
 RUN python3 -m pip install \
