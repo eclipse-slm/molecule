@@ -8,6 +8,7 @@ RUN echo "alias mcrs='molecule create -s'" >> ~/.bashrc && \
     echo "alias mps='molecule prepare -f -s'" >> ~/.bashrc && \
     echo "alias mcs='molecule converge -s'" >> ~/.bashrc && \
     echo "alias mvs='molecule verify -s'" >> ~/.bashrc && \
+    echo "alias mts='molecule test -s'" >> ~/.bashrc && \
     echo "alias mds='molecule destroy -s'" >> ~/.bashrc
 
 RUN git config --global credential.helper store
