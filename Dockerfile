@@ -1,4 +1,4 @@
-ARG MOLECULE_VERSION=5.1.0
+ARG MOLECULE_VERSION=6.0.2
 FROM python:3.9
 
 ARG MOLECULE_VERSION
@@ -21,6 +21,8 @@ RUN python3 -m pip install \
     pywinrm \
     pypsrp \
     requests-credssp==1.3.1
+
+RUN eval "$(_MOLECULE_COMPLETE=SHELL_source molecule)"
 
 RUN ansible-galaxy install git+https://github.com/eclipse-slm/molecule_vsphere
 #RUN ansible-galaxy collection install community.vmware:3.2.0
