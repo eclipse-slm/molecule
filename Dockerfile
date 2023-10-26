@@ -20,7 +20,9 @@ RUN python3 -m pip install \
     jmespath \
     pywinrm \
     pypsrp \
-    requests-credssp==1.3.1
+    requests-credssp==1.3.1 \
+    openstacksdk \
+    openstackclient
 
 RUN eval "$(_MOLECULE_COMPLETE=SHELL_source molecule)"
 
