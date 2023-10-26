@@ -20,7 +20,9 @@ RUN python3 -m pip install \
     jmespath \
     pywinrm \
     pypsrp \
-    requests-credssp==1.3.1
+    requests-credssp==1.3.1 \
+    openstacksdk \
+    openstackclient
 
 RUN ansible-galaxy install git+https://github.com/eclipse-slm/molecule_vsphere
 #RUN ansible-galaxy collection install community.vmware:3.2.0
