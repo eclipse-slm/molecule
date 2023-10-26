@@ -2,5 +2,5 @@
 version: "3"
 services:
   molecule:
-    image: ghcr.io/eclipse-slm/molecule:6.0.2
+    image: ghcr.io/eclipse-slm/molecule:5.1.0
     build: .
