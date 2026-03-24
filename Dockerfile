@@ -1,4 +1,4 @@
-ARG MOLECULE_VERSION=24.2.1
+ARG MOLECULE_VERSION=26.3.0
 FROM python:3.12
 
 ARG MOLECULE_VERSION
@@ -13,10 +13,12 @@ RUN echo "alias mcrs='molecule create -s'" >> ~/.bashrc && \
     echo "alias mls='molecule login -s'" >> ~/.bashrc
 
 RUN git config --global credential.helper store
-RUN apt update && apt install -y docker.io sshpass libguestfs-tools libvirt-dev virtinst
+RUN apt update && apt install -y docker.io sshpass libguestfs-tools libvirt-dev virtinst libssl-dev
+RUN pip3 install ansible-dev-tools
 RUN python3 -m pip install \
     molecule==$MOLECULE_VERSION \
     molecule[docker]==$MOLECULE_VERSION \
+    molecule[openstack]==$MOLECULE_VERSION \
     ansible \
     jmespath \
     pywinrm \
