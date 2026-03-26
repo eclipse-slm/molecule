@@ -30,7 +30,7 @@ RUN python3 -m pip install \
 RUN eval "$(_MOLECULE_COMPLETE=SHELL_source molecule)"
 
 RUN ansible-galaxy install git+https://github.com/eclipse-slm/molecule_vsphere
-RUN ansible-galaxy install git+https://github.com/FabOS-AI/molecule_openstack
+RUN ansible-galaxy install ipa-big.molecule_openstack
 #RUN ansible-galaxy collection install community.vmware:3.2.0
 
 CMD /bin/sh -c /bin/bash
