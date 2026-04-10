@@ -3,6 +3,10 @@ FROM python:3.12
 
 ARG MOLECULE_VERSION
 
+ENV OS_REGION_NAME=RegionOne \
+    OS_INTERFACE=public \
+    OS_IDENTITY_API_VERSION=3
+
 RUN echo "alias mcrs='molecule create -s'" >> ~/.bashrc && \
     echo "alias mrs='molecule reset -s'" >> ~/.bashrc && \
     echo "alias mps='molecule prepare -f -s'" >> ~/.bashrc && \
